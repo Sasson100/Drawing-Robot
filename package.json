@@ -1,0 +1,9 @@
+{
+    "urls": [
+        ["drawing_code.py","drawing_code.py"]
+    ],
+    "deps": [
+        ["github:Sasson100/Button-Micropython","master"],
+        ["github:Sasson100/Joystick-Micropython","master"]
+    ]
+}
