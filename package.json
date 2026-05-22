@@ -1,6 +1,9 @@
 {
     "urls": [
-        ["drawing_code.py","drawing_code.py"]
+        ["drawing_code.py","drawing_code.py"],
+        ["st7789py.py","st7789py.py"],
+        ["xglcd_font.py","xglcd_font.py"],
+        ["FixedFont5x8.c","FixedFont5x8.c"]
     ],
     "deps": [
         ["github:Sasson100/Button-Micropython","master"],
