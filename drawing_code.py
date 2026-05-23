@@ -63,17 +63,17 @@ while True:
                 time.sleep_ms(500) 
             else:
                 if menu_pos == 0:
-                    display.fill_rect(150,270,size,size,black)
-                    display.text_xglcd(font,f"Size = {size}",10,270,black)
+                    if d[0] == -1:
+                        display.vline(150+size-1,270,size,black)
+                        display.hline(150,270+size-1,size,black)
                     size = max(1,min(50,size+d[0]))
-                    display.text_xglcd(font,f"Size = {size}",10,270,white)
+                    display.text_xglcd(font,f"Size = {size}  ",10,270,white)
                 else:
                     color_cap = ["Red","Green","Blue"][menu_pos-1]
                     color_lower = color_cap.lower()
-                    display.text_xglcd(font,f"{color_cap} = {color_dict[color_lower]}",10,10*menu_pos+270,black)
                     color_dict[color_lower] = (color_dict[color_lower]+d[0])%256
                     color = st7789.color565(**color_dict)
-                    display.text_xglcd(font,f"{color_cap} = {color_dict[color_lower]}",10,10*menu_pos+270,white)
+                    display.text_xglcd(font,f"{color_cap} = {color_dict[color_lower]}  ",10,10*menu_pos+270,white)
                 display.fill_rect(150,270,size,size,color)   
                 time.sleep_ms(100)
         else:
