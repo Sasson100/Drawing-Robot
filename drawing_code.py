@@ -19,13 +19,15 @@ display = st7789.ST7789(
     cs=Pin(4,Pin.OUT),
     dc=Pin(17,Pin.OUT),
     reset=Pin(16,Pin.OUT),
+    rotation=2,
     color_order=st7789.BGR
 )
 display.inversion_mode(False)
-font = XglcdFont('FixedFont5x8.c', 5, 8)
+font = XglcdFont('fonts/FixedFont5x8.c', 5, 8)
 
-button = Button(21)
+
 joystick = Joystick(14,27,12)
+button = Button(22)
 
 x_pos = 0
 y_pos = 0
@@ -60,8 +62,8 @@ while True:
                 display.fill_rect(5,(menu_pos+1)*10+260,3,8,white)
                 time.sleep_ms(500) 
             else:
-                display.fill_rect(150,270,size,size,white)
                 if menu_pos == 0:
+                    display.fill_rect(150,270,size,size,black)
                     display.text_xglcd(font,f"Size = {size}",10,270,black)
                     size = max(1,min(50,size+d[0]))
                     display.text_xglcd(font,f"Size = {size}",10,270,white)
@@ -82,7 +84,7 @@ while True:
             display.fill_rect(x_pos,y_pos,size,size,color)
             time.sleep_ms(200)
 
-    if joystick.button.was_pressed():
+    if button.was_pressed():
         in_menu = not in_menu
         if in_menu:
             menu_pos = 0
