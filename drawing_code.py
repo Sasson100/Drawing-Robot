@@ -75,14 +75,14 @@ while True:
                     color = st7789.color565(**color_dict)
                     display.text_xglcd(font,f"{color_cap} = {color_dict[color_lower]}  ",10,10*menu_pos+270,white)
                 display.fill_rect(150,270,size,size,color)   
-                time.sleep_ms(100)
+                time.sleep_ms(50)
         else:
-            x_pos = (x_pos+d[0])%240
-            y_pos = (y_pos-d[1])%240
+            x_pos = (x_pos+d[0])%(241-size)
+            y_pos = (y_pos-d[1])%(241-size)
             size_x = min(239,max(0,x_pos+size))-x_pos
             size_y = min(239,max(0,y_pos+size))-y_pos
             display.fill_rect(x_pos,y_pos,size,size,color)
-            time.sleep_ms(200)
+            time.sleep_ms(50)
 
     if button.was_pressed():
         in_menu = not in_menu
