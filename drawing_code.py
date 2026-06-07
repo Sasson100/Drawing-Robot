@@ -23,7 +23,7 @@ display = st7789.ST7789(
     color_order=st7789.BGR
 )
 display.inversion_mode(False)
-font = XglcdFont('fonts/FixedFont5x8.c', 5, 8)
+font = XglcdFont('FixedFont5x8.c', 5, 8)
 
 
 joystick = Joystick(14,27,12)
