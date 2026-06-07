@@ -6,7 +6,6 @@
         ["FixedFont5x8.c","FixedFont5x8.c"]
     ],
     "deps": [
-        ["github:Sasson100/Button-Micropython","main"],
         ["github:Sasson100/Joystick-Micropython","main"]
     ]
 }
